@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+<script>
+
+const rock = "rock";
+const paper = "paper";
+const scissor = "scissor";
+let usr;
+let rps;
+let score;
+
+function computerPlay(){
+let g = Math.random() * 3;
+
+if(g >= 0 && g <= 1){
+    rps = rock;
+}
+else if(g >= 1 && g <= 2){
+    rps = paper;
+}
+else{
+    rps = scissor;
+}    
+return rps;
+}
+
+
+function gameRPS(usr){
+if( usr == "paper" && rps == "rock"){
+    return score = 1;
+}
+else if( usr == "paper" && rps == "scissor"){
+    return score = 2;
+}
+else if( usr == "paper" && rps == "paper"){
+    return score = 3;
+}
+else if( usr == "rock" && rps == "scissor"){
+    return score = 1;
+}
+else if( usr == "rock" && rps == "paper"){
+    return score = 2;
+}
+else if( usr == "rock" && rps == "rock"){
+    return score = 3;
+}
+else if( usr == "scissor" && rps == "paper"){
+    return score = 1;
+}
+else if( usr == "scissor" && rps == "rock"){
+    return score = 2;
+}
+else if( usr == "scissor" && rps == "scissor"){
+    return score = 3;
+}
+}
+
+let usrScore = 0;
+let comScore = 0;
+
+function rounds(){
+    for(let i = 0; i < 5; i++){
+        usr = prompt("Rock! Paper! Scissors! SHOOT!.... ");
+        computerPlay();
+        gameRPS(usr);
+    if(score == 1){
+        console.log(usr + " beats " + rps +"! You win");
+        usrScore ++;
+    }
+    else if(score == 2){
+        console.log(rps + " beats " + usr +"! You lose")
+        comScore ++;
+    }
+    else if(score == 3){
+        console.log("Draw!");
+    }
+    console.log("You have " + usrScore +" points.")
+    console.log("The computer has " + comScore +" points.")
+    }
+    if(comScore > usrScore){
+        console.log("Computer Wins! Hit refresh to play again")
+    }
+    else if(comScore < usrScore){
+        console.log("You Win! Hit refresh to play again")
+    }
+    else if(comScore == usrScore){
+        console.log("It is a draw! Hit refresh to play again")
+    }
+}
+rounds();
+</script>
+</body>
+</html>
